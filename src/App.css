@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    background-color: rgb(17, 47, 146);
+    background-image: radial-gradient(at 73% 16%, rgb(132, 212, 252) 0, transparent 84%), radial-gradient(at 47% 27%, rgb(234, 88, 12) 0, transparent 48%), radial-gradient(at 25% 80%, rgb(255, 192, 161) 0, transparent 92%), radial-gradient(at 19% 15%, rgb(12, 74, 110) 0, transparent 56%), radial-gradient(at 85% 58%, rgb(34, 200, 245) 0, transparent 32%), radial-gradient(at 86% 83%, rgb(59, 96, 246) 0, transparent 52%);
+}
