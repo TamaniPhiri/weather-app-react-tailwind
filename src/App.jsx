@@ -62,15 +62,31 @@ function App() {
 
   const date = new Date();
   return (
-    <div className="w-full px-4 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
+    <div className="w-full px-4 py-12 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
-      <form action="" className="w-full max-w-md">
-        <div>
+      <form action="" className="w-full mb-4 flex max-w-md">
+        <div className="rounded-full text-white w-full bg-black/20 backdrop-blur-sm overflow-hidden border flex items-center">
           <input
             type="text"
             placeholder="Search by city or country"
-            className="w-full rounded-3xl p-2"
+            className="w-full h-full text-lg bg-transparent pl-4 my-3 focus:outline-none"
           />
+          <button className="py-2 px-4 bg-[#a55431] hover:scale-105 mr-2 rounded-full transition-all">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+          </button>
         </div>
       </form>
       {/* Card */}

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    background-color: rgb(12, 33, 103);
+    background-color: rgb(6, 20, 66);
     background-image: radial-gradient(at 73% 16%, rgb(20, 143, 205) 0, transparent 84%), radial-gradient(at 47% 27%, rgb(179, 68, 8) 0, transparent 48%), radial-gradient(at 25% 80%, rgb(192, 91, 41) 0, transparent 92%), radial-gradient(at 19% 15%, rgb(7, 46, 69) 0, transparent 56%), radial-gradient(at 85% 58%, rgb(19, 129, 159) 0, transparent 32%), radial-gradient(at 86% 83%, rgb(33, 71, 222) 0, transparent 52%);
     font-family: 'REM', sans-serif;
 }
