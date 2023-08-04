@@ -9,6 +9,7 @@ import IconCloudDrizzle from "./assets/icons/Drizzle";
 import IconSnow2 from "./assets/icons/Snow";
 import IconThunderstormOutline from "./assets/icons/Thunderstorm";
 import IconTemperatureCelsius from "./assets/icons/Temperature";
+import IconEye from "./assets/icons/Eye";
 
 const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 
@@ -75,7 +76,7 @@ function App() {
             </div>
           </div>
           <div className="my-20">
-            <div>
+            <div className="flex justify-center items-center">
               <div className="text-[144px] leading-none font-light">
                 {parseInt(data.main.temp)}
               </div>
@@ -83,8 +84,20 @@ function App() {
                 <IconTemperatureCelsius/>
               </div>
             </div>
+            <div className="capitalize text-center">
+              {data.weather[0].description}
+            </div>
           </div>
-          <div>bottom</div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <IconEye/>
+                </div>
+                <div>Visibility <span>{data.visibility/1000}km</span></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
