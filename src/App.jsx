@@ -10,6 +10,7 @@ import IconSnow2 from "./assets/icons/Snow";
 import IconThunderstormOutline from "./assets/icons/Thunderstorm";
 import IconTemperatureCelsius from "./assets/icons/Temperature";
 import IconEye from "./assets/icons/Eye";
+import IconThermometerHalf from "./assets/icons/Thermometer";
 
 const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 
@@ -89,12 +90,18 @@ function App() {
             </div>
           </div>
           <div>
-            <div>
-              <div>
-                <div>
+            <div className="flex w-full justify-between">
+              <div className="flex w-1/2 items-center gap-3">
+                <div className="text-[20px]">
                   <IconEye/>
                 </div>
-                <div>Visibility <span>{data.visibility/1000}km</span></div>
+                <div>Visibility <span className="ml-3">{data.visibility/1000}km</span></div>
+              </div>
+              <div className="flex w-1/2 items-center gap-3">
+                <div className="text-[20px]">
+                  <IconThermometerHalf/>
+                </div>
+                <div>Visibility <span className="ml-3">{data.visibility/1000}km</span></div>
               </div>
             </div>
           </div>
