@@ -11,6 +11,8 @@ import IconThunderstormOutline from "./assets/icons/Thunderstorm";
 import IconTemperatureCelsius from "./assets/icons/Temperature";
 import IconEye from "./assets/icons/Eye";
 import IconThermometerHalf from "./assets/icons/Thermometer";
+import IconBxWater from "./assets/icons/Water";
+import IconWind from "./assets/icons/Wind";
 
 const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 
@@ -27,13 +29,12 @@ function App() {
   if (!data) {
     return (
       <div className="flex min-h-screen w-full items-center justify-center">
-        <div className="w-32 h-32 rounded-full border-8 border-t-teal-600 animate-spin"></div>
+        <div className="w-32 h-32 rounded-full border-8 border-t-[#a75837] animate-spin"></div>
       </div>
     );
   }
 
   let icon;
-  console.log(data.weather[0].main);
 
   switch (data.weather[0].main) {
     case "Clouds":
@@ -79,7 +80,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="my-20">
+          <div className="my-16">
             <div className="flex justify-center items-center">
               <div className="text-[144px] leading-none font-light">
                 {parseInt(data.main.temp)}
@@ -117,21 +118,20 @@ function App() {
             <div className="flex md:flex-row mt-4 flex-col gap-4 w-full justify-between">
               <div className="flex md:w-1/2 items-center gap-3">
                 <div className="text-[20px]">
-                  <IconEye />
+                  <IconBxWater  />
                 </div>
                 <div>
                   Humidity{" "}
-                  <span className="ml-3">{data.main.humidity}%</span>
+                  <span className="ml-3">{data.main.humidity} %</span>
                 </div>
               </div>
               <div className="flex md:w-1/2 items-center gap-3">
                 <div className="text-[20px]">
-                  <IconThermometerHalf />
+                  <IconWind />
                 </div>
                 <div className="flex items-center">
-                  Feels like{" "}
-                  <span className="ml-3">{parseInt(data.main.feels_like)}</span>
-                    <IconTemperatureCelsius />
+                  Wind {" "}
+                  <span className="ml-3">{data.wind.speed} m/s</span>
                 </div>
               </div>
             </div>
