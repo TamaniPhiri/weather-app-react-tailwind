@@ -111,14 +111,29 @@ function App() {
   }
 
   const date = new Date();
+  const navAnimate={
+    hidden:{
+      opacity:0,
+      translateY:-30
+    },
+    show:{
+      opacity:1,
+      translateY:0
+    },
+    exit:{
+      opacity:0,
+      translateY:-30
+    }
+  }
   return (
     <div className="w-full px-4 py-20 relative lg:px-0 transition-all transform bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       <AnimatePresence>
         {errorMsg ? (
           <motion.div
-            initial={{ opacity: 0, translateY: -30 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: -30 }}
+            variants={navAnimate}
+            initial="hidden"
+            animate="show"
+            exit="exit"
             transition={{ duration: 0.2 }}
             className="fixed z-50 top-0 w-full items-center text-black"
           >
