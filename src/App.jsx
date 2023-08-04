@@ -161,7 +161,7 @@ function App() {
           />
           <button
             onClick={(e) => handleSubmit(e)}
-            className="py-2 px-4 bg-[#f4966d] hover:bg-[#fe814b] text-black/70 group mr-2 rounded-full transition-all"
+            className="py-2 px-4 bg-[#f4966d] hover:bg-[#fe814b] text-white group mr-2 rounded-full transition-all"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
