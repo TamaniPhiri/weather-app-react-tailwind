@@ -18,7 +18,7 @@ const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 
 function App() {
   const [data, setData] = useState(null);
-  const [location, setLocation] = useState("Phoenix");
+  const [location, setLocation] = useState("Lusaka");
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${APIkey}`;
     axios.get(url).then((res) => {
@@ -106,7 +106,19 @@ function App() {
           </div>
           <div className="my-12">
             <div className="flex justify-center items-center">
-              <div className={`text-[144px] bg-clip-text bg-gradient-to-tr text-transparent ${data.main.temp>=30?"from-white to-orange-300":"from-white to-blue-300"} leading-none font-light`}>
+              <div
+                className={`text-[144px] bg-clip-text bg-gradient-to-tr text-white ${
+                  data.main.temp <= 20
+                    ? "from-white to-blue-300 text-transparent"
+                    : ""
+                } ${
+                  data.main.temp >= 30
+                    ? "from-white to-orange-300 text-transparent"
+                    : ""
+                } ${data.main.temp <= 10 ? "from-white to-blue-500" : ""} ${
+                  data.main.temp ? "from-white to-orange-500" : ""
+                } leading-none font-light`}
+              >
                 {parseInt(data.main.temp)}
               </div>
               <div className="md:text-5xl text-4xl ml-2">
