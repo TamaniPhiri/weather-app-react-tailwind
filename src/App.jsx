@@ -114,7 +114,7 @@ function App() {
   const navAnimate={
     hidden:{
       opacity:0,
-      translateY:-30
+      translateY:-50
     },
     show:{
       opacity:1,
@@ -122,7 +122,7 @@ function App() {
     },
     exit:{
       opacity:0,
-      translateY:-30
+      translateY:-50
     }
   }
   return (
@@ -134,7 +134,7 @@ function App() {
             initial="hidden"
             animate="show"
             exit="exit"
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className="fixed z-50 top-0 w-full items-center text-black"
           >
             <div className="flex capitalize w-full items-center rounded py-4 justify-center">
