@@ -65,13 +65,13 @@ function App() {
     <div className="w-full px-4 py-12 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
       <form action="" className="w-full mb-4 flex max-w-md">
-        <div className="rounded-full text-white w-full bg-black/20 backdrop-blur-sm overflow-hidden border flex items-center">
+        <div className="rounded-full text-white w-full bg-black/20 backdrop-blur-sm overflow-hidden border border-black/25 flex items-center">
           <input
             type="text"
             placeholder="Search by city or country"
             className="w-full h-full text-lg bg-transparent pl-4 my-3 focus:outline-none"
           />
-          <button className="py-2 px-4 bg-[#f4966d] group mr-2 rounded-full transition-all">
+          <button className="py-2 px-4 bg-[#f4966d] text-black/70 group mr-2 rounded-full transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -104,7 +104,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="my-14">
+          <div className="my-12">
             <div className="flex justify-center items-center">
               <div className="text-[144px] leading-none font-light">
                 {parseInt(data.main.temp)}
