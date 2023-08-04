@@ -203,7 +203,7 @@ function App() {
             <div className="my-12">
               <div className="flex justify-center items-center">
                 <div
-                  className={`text-[144px] bg-clip-text bg-gradient-to-tr text-white ${
+                  className={`text-[144px] bg-clip-text bg-gradient-to-tr ${
                     data.main.temp <= 20
                       ? "from-white to-blue-300 text-transparent"
                       : data.main.temp >= 35
@@ -212,7 +212,7 @@ function App() {
                       ? "from-white to-blue-500 text-transparent"
                       : data.main.temp >= 30
                       ? "from-white to-orange-300 text-transparent"
-                      : ""
+                      : "text-white"
                   } leading-none font-light`}
                 >
                   {parseInt(data.main.temp)}
