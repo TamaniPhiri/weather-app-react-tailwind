@@ -19,6 +19,7 @@ const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 function App() {
   const [data, setData] = useState(null);
   const [location, setLocation] = useState("Lusaka");
+  const[inputValue,setInputValue]=useState('');
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${APIkey}`;
     axios.get(url).then((res) => {
