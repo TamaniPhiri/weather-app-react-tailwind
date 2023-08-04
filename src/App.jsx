@@ -73,7 +73,10 @@ function App() {
               <div className="text-2xl font-semibold">
                 {data.name}, {data.sys.country}
               </div>
-              <div>{date.getUTCDate()}/{date.getUTCMonth()+1}/{date.getUTCFullYear()}</div>
+              <div>
+                {date.getUTCDate()}/{date.getUTCMonth() + 1}/
+                {date.getUTCFullYear()}
+              </div>
             </div>
           </div>
           <div className="my-20">
@@ -82,7 +85,7 @@ function App() {
                 {parseInt(data.main.temp)}
               </div>
               <div className="text-4xl">
-                <IconTemperatureCelsius/>
+                <IconTemperatureCelsius />
               </div>
             </div>
             <div className="capitalize text-center">
@@ -93,15 +96,21 @@ function App() {
             <div className="flex w-full justify-between">
               <div className="flex w-1/2 items-center gap-3">
                 <div className="text-[20px]">
-                  <IconEye/>
+                  <IconEye />
                 </div>
-                <div>Visibility <span className="ml-3">{data.visibility/1000}km</span></div>
+                <div>
+                  Visibility{" "}
+                  <span className="ml-3">{data.visibility / 1000}km</span>
+                </div>
               </div>
               <div className="flex w-1/2 items-center gap-3">
                 <div className="text-[20px]">
-                  <IconThermometerHalf/>
+                  <IconThermometerHalf />
                 </div>
-                <div>Visibility <span className="ml-3">{data.visibility/1000}km</span></div>
+                <div>
+                  Visibility{" "}
+                  <span className="ml-3">{data.visibility / 1000}km</span>
+                </div>
               </div>
             </div>
           </div>
