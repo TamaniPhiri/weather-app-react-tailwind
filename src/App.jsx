@@ -49,8 +49,12 @@ function App() {
       axios.get(url).then((res) => {
         setData(res.data);
       });
+      setTimeout(()=>{
+        setLoading(false)
+      },1500)
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   }, [location]);
 
@@ -90,7 +94,7 @@ function App() {
 
   const date = new Date();
   return (
-    <div className="w-full px-4 py-12 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
+    <div className="w-full px-4 py-12 lg:px-0 transition-all transform bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
       <form
         action=""
@@ -127,9 +131,11 @@ function App() {
         </div>
       </form>
       {/* Card */}
-      <div className="w-full max-w-md min-h-[450px] text-white bg-black/20 py-12 px-6 rounded-3xl backdrop-blur-sm">
+      <div className="w-full max-w-md min-h-[500px] transition-all text-white bg-black/20 py-12 px-6 rounded-3xl backdrop-blur-sm">
         {loading ? (
-          <div>loading...</div>
+          <div className="flex h-[400px] flex-1 w-full items-center justify-center">
+            <div className="w-32 h-32 rounded-full transition-all border-8 border-t-[#a75837] animate-spin"></div>
+          </div>
         ) : (
           <div>
             <div className="flex gap-5 items-center">
