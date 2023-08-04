@@ -20,6 +20,7 @@ function App() {
   const [data, setData] = useState(null);
   const [location, setLocation] = useState("Lusaka");
   const[inputValue,setInputValue]=useState('');
+  const[animate,setAnimate]=useState(false)
 
   const handleInput=(e)=>{
     setInputValue(e.target.value)
@@ -29,6 +30,14 @@ function App() {
     if(inputValue!==""){
       setLocation(inputValue)
     }
+    const input=document.querySelector('input')
+    if(inputValue===""){
+      setAnimate(true)
+      setTimeout(()=>{
+        setAnimate(false)
+      },500)
+    }
+    input.value=''
     e.preventDefault()
   }
 
@@ -77,7 +86,7 @@ function App() {
   return (
     <div className="w-full px-4 py-12 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
-      <form action="" className="w-full mb-4 flex max-w-md">
+      <form action="" className={`${animate?" animate-shake":""} w-full mb-4 flex max-w-md`}>
         <div className="rounded-full text-white w-full bg-black/20 backdrop-blur-sm overflow-hidden border border-black/25 flex items-center">
           <input
             type="text"
