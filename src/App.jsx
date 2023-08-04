@@ -18,7 +18,7 @@ const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 
 function App() {
   const [data, setData] = useState(null);
-  const [location, setLocation] = useState("Kuwait");
+  const [location, setLocation] = useState("Lusaka");
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${APIkey}`;
     axios.get(url).then((res) => {
@@ -110,6 +110,10 @@ function App() {
                 className={`text-[144px] bg-clip-text bg-gradient-to-tr text-white ${
                   data.main.temp <= 20
                     ? "from-white to-blue-300 text-transparent"
+                    : data.main.temp >= 35
+                    ? "from-white to-orange-500 text-transparent"
+                    : data.main.temp <= 10
+                    ? "from-white to-blue-500 text-transparent"
                     : data.main.temp >= 30
                     ? "from-white to-orange-300 text-transparent"
                     : ""
