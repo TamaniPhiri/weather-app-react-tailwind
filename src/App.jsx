@@ -64,12 +64,13 @@ function App() {
       {/* Card */}
       <div className="w-full max-w-md text-white bg-black/20 py-12 px-6 rounded-3xl backdrop-blur-sm">
         <div>
-          <div>
+          <div className="flex gap-5 items-center">
             <div className="text-[87px]">{icon}</div>
             <div>
               <div className="text-2xl font-semibold">
                 {data.name}, {data.sys.country}
               </div>
+              <div>{date.getUTCDate()}/{date.getUTCMonth()+1}/{date.getUTCFullYear()}</div>
             </div>
           </div>
           <div>body</div>
