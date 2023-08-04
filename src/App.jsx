@@ -32,38 +32,46 @@ function App() {
   let icon;
   console.log(data.weather[0].main);
 
-  switch(data.weather[0].main){
-    case 'Clouds':
-      icon = <IconClouds/>;
-      break
-    case 'Haze':
-      icon =<IconCloudHaze2/>;
-      break
-    case 'Rain':
-      icon=<IconCloudRain/>;
-      break
-    case 'Clear':
-      icon=<IconSun/>;
-      break
-    case 'Drizzle':
-      icon= <IconCloudDrizzle/>;
-      break
-    case 'Snow':
-      icon=<IconSnow2/>
-      break
-    case 'Thunderstorm':
-      icon=<IconThunderstormOutline/>
-      break
+  switch (data.weather[0].main) {
+    case "Clouds":
+      icon = <IconClouds />;
+      break;
+    case "Haze":
+      icon = <IconCloudHaze2 />;
+      break;
+    case "Rain":
+      icon = <IconCloudRain />;
+      break;
+    case "Clear":
+      icon = <IconSun />;
+      break;
+    case "Drizzle":
+      icon = <IconCloudDrizzle />;
+      break;
+    case "Snow":
+      icon = <IconSnow2 />;
+      break;
+    case "Thunderstorm":
+      icon = <IconThunderstormOutline />;
+      break;
   }
 
+  const date = new Date();
   return (
     <div className="w-full px-4 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
       <form action="">form</form>
       {/* Card */}
-      <div className="w-full max-w-md bg-black/25 py-12 px-6 rounded-3xl backdrop-blur-sm">
+      <div className="w-full max-w-md text-white bg-black/20 py-12 px-6 rounded-3xl backdrop-blur-sm">
         <div>
-          <div>card top</div>
+          <div>
+            <div className="text-[87px]">{icon}</div>
+            <div>
+              <div className="text-2xl font-semibold">
+                {data.name}, {data.sys.country}
+              </div>
+            </div>
+          </div>
           <div>body</div>
           <div>bottom</div>
         </div>
