@@ -64,9 +64,13 @@ function App() {
   return (
     <div className="w-full px-4 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
-      <form action="">
+      <form action="" className="w-full max-w-md">
         <div>
-          <input type="text" name="" id="" />
+          <input
+            type="text"
+            placeholder="Search by city or country"
+            className="w-full rounded-3xl p-2"
+          />
         </div>
       </form>
       {/* Card */}
