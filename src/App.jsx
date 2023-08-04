@@ -71,14 +71,14 @@ function App() {
             placeholder="Search by city or country"
             className="w-full h-full text-lg bg-transparent pl-4 my-3 focus:outline-none"
           />
-          <button className="py-2 px-4 bg-[#a55431] hover:scale-105 mr-2 rounded-full transition-all">
+          <button className="py-2 px-4 bg-[#f4966d] group mr-2 rounded-full transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-6 h-6 group-hover:scale-105 transition-all duration-300"
             >
               <path
                 strokeLinecap="round"
