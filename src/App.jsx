@@ -8,6 +8,7 @@ import IconSun from "./assets/icons/Clear";
 import IconCloudDrizzle from "./assets/icons/Drizzle";
 import IconSnow2 from "./assets/icons/Snow";
 import IconThunderstormOutline from "./assets/icons/Thunderstorm";
+import IconTemperatureCelsius from "./assets/icons/Temperature";
 
 const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 
@@ -15,7 +16,7 @@ function App() {
   const [data, setData] = useState(null);
   const [location, setLocation] = useState("Zambia");
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${APIkey}`;
     axios.get(url).then((res) => {
       setData(res.data);
     });
@@ -73,7 +74,16 @@ function App() {
               <div>{date.getUTCDate()}/{date.getUTCMonth()+1}/{date.getUTCFullYear()}</div>
             </div>
           </div>
-          <div>body</div>
+          <div className="my-20">
+            <div>
+              <div className="text-[144px] leading-none font-light">
+                {parseInt(data.main.temp)}
+              </div>
+              <div className="text-4xl">
+                <IconTemperatureCelsius/>
+              </div>
+            </div>
+          </div>
           <div>bottom</div>
         </div>
       </div>
