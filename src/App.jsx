@@ -13,6 +13,7 @@ import IconEye from "./assets/icons/Eye";
 import IconThermometerHalf from "./assets/icons/Thermometer";
 import IconBxWater from "./assets/icons/Water";
 import IconWind from "./assets/icons/Wind";
+import { motion, AnimatePresence } from "framer-motion";
 
 const APIkey = "db5595bf66ed081a4a8bc0aff8227211";
 
@@ -22,39 +23,56 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [animate, setAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    if (inputValue === "") {
-      setAnimate(true);
-      setTimeout(() => {
-        setAnimate(false);
-      }, 500);
+    try {
+      if (inputValue === "") {
+        setAnimate(true);
+        setTimeout(() => {
+          setAnimate(false);
+        }, 500);
+      }
+      if (inputValue !== "") {
+        setLocation(inputValue);
+      }
+      const input = document.querySelector("input");
+      input.value = "";
+      e.preventDefault();
+    } catch (error) {
+      setErrorMsg("Something went wrong..");
+      console.log(error);
     }
-    if (inputValue !== "") {
-      setLocation(inputValue);
-    }
-    const input = document.querySelector("input");
-    input.value = "";
-    e.preventDefault();
   };
 
   useEffect(() => {
     try {
       setLoading(true);
+      setErrorMsg("");
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${APIkey}`;
-      axios.get(url).then((res) => {
-        setData(res.data);
-      });
-      setTimeout(()=>{
-        setLoading(false)
-      },1500)
+      axios
+        .get(url)
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+          setErrorMsg(err.response.data.message);
+          setTimeout(() => {
+            setErrorMsg("");
+          }, 3000);
+        });
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
     } catch (error) {
       console.log(error);
-      setLoading(false)
+      setLoading(false);
+      setErrorMsg("Something went wrong");
     }
   }, [location]);
 
@@ -94,13 +112,30 @@ function App() {
 
   const date = new Date();
   return (
-    <div className="w-full px-4 py-12 lg:px-0 transition-all transform bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
+    <div className="w-full px-4 py-20 relative lg:px-0 transition-all transform bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
+      <AnimatePresence>
+        {errorMsg ? (
+          <motion.div
+            initial={{ opacity: 0, translateY: -30 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: -30 }}
+            transition={{ duration: 0.2 }}
+            className="fixed z-50 top-0 w-full items-center text-black"
+          >
+            <div className="flex capitalize w-full items-center rounded py-4 justify-center">
+              <span className="max-w-mg rounded-md text-red-500 font-bold shadow bg-white/70 backdrop-blur-sm p-4">
+                {errorMsg}!
+              </span>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
       {/* Form */}
       <form
         action=""
         className={`${
           animate ? " animate-shake" : ""
-        } w-full mb-4 flex max-w-md`}
+        } w-full mb-4 relative flex max-w-md`}
       >
         <div className="rounded-full text-white w-full bg-black/20 backdrop-blur-sm overflow-hidden border border-black/25 flex items-center">
           <input
@@ -131,7 +166,7 @@ function App() {
         </div>
       </form>
       {/* Card */}
-      <div className="w-full max-w-md min-h-[500px] transition-all text-white bg-black/20 py-12 px-6 rounded-3xl backdrop-blur-sm">
+      <div className="w-full relative max-w-md min-h-[580px] transition-all text-white bg-black/20 py-12 px-6 rounded-3xl backdrop-blur-sm">
         {loading ? (
           <div className="flex h-[400px] flex-1 w-full items-center justify-center">
             <div className="w-32 h-32 rounded-full transition-all border-8 border-t-[#a75837] animate-spin"></div>
