@@ -93,8 +93,8 @@ function App() {
             </div>
           </div>
           <div>
-            <div className="flex w-full justify-between">
-              <div className="flex w-1/2 items-center gap-3">
+            <div className="flex md:flex-row flex-col gap-4 w-full justify-between">
+              <div className="flex md:w-1/2 items-center gap-3">
                 <div className="text-[20px]">
                   <IconEye />
                 </div>
@@ -103,13 +103,35 @@ function App() {
                   <span className="ml-3">{data.visibility / 1000}km</span>
                 </div>
               </div>
-              <div className="flex w-1/2 items-center gap-3">
+              <div className="flex md:w-1/2 items-center gap-3">
                 <div className="text-[20px]">
                   <IconThermometerHalf />
                 </div>
+                <div className="flex items-center">
+                  Feels like{" "}
+                  <span className="ml-3">{parseInt(data.main.feels_like)}</span>
+                    <IconTemperatureCelsius />
+                </div>
+              </div>
+            </div>
+            <div className="flex md:flex-row mt-4 flex-col gap-4 w-full justify-between">
+              <div className="flex md:w-1/2 items-center gap-3">
+                <div className="text-[20px]">
+                  <IconEye />
+                </div>
                 <div>
-                  Visibility{" "}
-                  <span className="ml-3">{data.visibility / 1000}km</span>
+                  Humidity{" "}
+                  <span className="ml-3">{data.main.humidity}%</span>
+                </div>
+              </div>
+              <div className="flex md:w-1/2 items-center gap-3">
+                <div className="text-[20px]">
+                  <IconThermometerHalf />
+                </div>
+                <div className="flex items-center">
+                  Feels like{" "}
+                  <span className="ml-3">{parseInt(data.main.feels_like)}</span>
+                    <IconTemperatureCelsius />
                 </div>
               </div>
             </div>
