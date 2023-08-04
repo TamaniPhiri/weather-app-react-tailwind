@@ -85,7 +85,7 @@ function App() {
               <div className="text-[144px] leading-none font-light">
                 {parseInt(data.main.temp)}
               </div>
-              <div className="text-4xl">
+              <div className="text-4xl ml-2">
                 <IconTemperatureCelsius />
               </div>
             </div>
@@ -101,7 +101,7 @@ function App() {
                 </div>
                 <div>
                   Visibility{" "}
-                  <span className="ml-3">{data.visibility / 1000}km</span>
+                  <span className="ml-3">{data.visibility / 1000} km</span>
                 </div>
               </div>
               <div className="flex md:w-1/2 items-center gap-3">
@@ -110,8 +110,8 @@ function App() {
                 </div>
                 <div className="flex items-center">
                   Feels like{" "}
-                  <span className="ml-3">{parseInt(data.main.feels_like)}</span>
-                    <IconTemperatureCelsius />
+                  <span className="ml-3 mr-1">{parseInt(data.main.feels_like)}</span>
+                    <IconTemperatureCelsius className="text-lg"/>
                 </div>
               </div>
             </div>
