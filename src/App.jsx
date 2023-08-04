@@ -27,16 +27,16 @@ function App() {
   }
 
   const handleSubmit=(e)=>{
-    if(inputValue!==""){
-      setLocation(inputValue)
-    }
-    const input=document.querySelector('input')
     if(inputValue===""){
       setAnimate(true)
       setTimeout(()=>{
         setAnimate(false)
       },500)
     }
+    if(inputValue!==""){
+      setLocation(inputValue)
+    }
+    const input=document.querySelector('input')
     input.value=''
     e.preventDefault()
   }
