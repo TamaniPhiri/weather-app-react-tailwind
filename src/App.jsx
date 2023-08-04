@@ -20,6 +20,18 @@ function App() {
   const [data, setData] = useState(null);
   const [location, setLocation] = useState("Lusaka");
   const[inputValue,setInputValue]=useState('');
+
+  const handleInput=(e)=>{
+    setInputValue(e.target.value)
+  }
+
+  const handleSubmit=(e)=>{
+    if(inputValue!==""){
+      setLocation(inputValue)
+    }
+    e.preventDefault()
+  }
+
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${APIkey}`;
     axios.get(url).then((res) => {
@@ -69,10 +81,11 @@ function App() {
         <div className="rounded-full text-white w-full bg-black/20 backdrop-blur-sm overflow-hidden border border-black/25 flex items-center">
           <input
             type="text"
+            onChange={(e)=>handleInput(e)}
             placeholder="Search by city or country"
             className="w-full h-full text-lg bg-transparent pl-4 my-3 focus:outline-none"
           />
-          <button className="py-2 px-4 bg-[#f4966d] hover:bg-[#fe814b] text-black/70 group mr-2 rounded-full transition-all">
+          <button onClick={(e)=>handleSubmit(e)} className="py-2 px-4 bg-[#f4966d] hover:bg-[#fe814b] text-black/70 group mr-2 rounded-full transition-all">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
