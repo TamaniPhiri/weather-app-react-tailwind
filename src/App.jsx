@@ -57,11 +57,11 @@ function App() {
   }
 
   return (
-    <div className="w-full bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
+    <div className="w-full px-4 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
-      <form action=""></form>
+      <form action="">form</form>
       {/* Card */}
-      <div>
+      <div className="w-full max-w-md bg-black/25 py-12 px-6 rounded-3xl backdrop-blur-sm">
         <div>
           <div>card top</div>
           <div>body</div>
