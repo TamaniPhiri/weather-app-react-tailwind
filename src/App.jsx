@@ -64,7 +64,11 @@ function App() {
   return (
     <div className="w-full px-4 lg:px-0 bg-cover bg-no-repeat min-h-screen bg-center flex flex-col items-center justify-center">
       {/* Form */}
-      <form action="">form</form>
+      <form action="">
+        <div>
+          <input type="text" name="" id="" />
+        </div>
+      </form>
       {/* Card */}
       <div className="w-full max-w-md text-white bg-black/20 py-12 px-6 rounded-3xl backdrop-blur-sm">
         <div>
@@ -80,16 +84,16 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="my-16">
+          <div className="my-14">
             <div className="flex justify-center items-center">
               <div className="text-[144px] leading-none font-light">
                 {parseInt(data.main.temp)}
               </div>
-              <div className="text-4xl ml-2">
+              <div className="md:text-5xl text-4xl ml-2">
                 <IconTemperatureCelsius />
               </div>
             </div>
-            <div className="capitalize text-center">
+            <div className="capitalize mt-3 font-semibold text-center">
               {data.weather[0].description}
             </div>
           </div>
@@ -110,19 +114,20 @@ function App() {
                 </div>
                 <div className="flex items-center">
                   Feels like{" "}
-                  <span className="ml-3 mr-1">{parseInt(data.main.feels_like)}</span>
-                    <IconTemperatureCelsius className="text-lg"/>
+                  <span className="ml-3 mr-1">
+                    {parseInt(data.main.feels_like)}
+                  </span>
+                  <IconTemperatureCelsius className="text-lg" />
                 </div>
               </div>
             </div>
             <div className="flex md:flex-row mt-4 flex-col gap-4 w-full justify-between">
               <div className="flex md:w-1/2 items-center gap-3">
                 <div className="text-[20px]">
-                  <IconBxWater  />
+                  <IconBxWater />
                 </div>
                 <div>
-                  Humidity{" "}
-                  <span className="ml-3">{data.main.humidity} %</span>
+                  Humidity <span className="ml-3">{data.main.humidity} %</span>
                 </div>
               </div>
               <div className="flex md:w-1/2 items-center gap-3">
@@ -130,8 +135,7 @@ function App() {
                   <IconWind />
                 </div>
                 <div className="flex items-center">
-                  Wind {" "}
-                  <span className="ml-3">{data.wind.speed} m/s</span>
+                  Wind <span className="ml-3">{data.wind.speed} m/s</span>
                 </div>
               </div>
             </div>
